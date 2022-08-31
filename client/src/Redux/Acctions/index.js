@@ -16,67 +16,108 @@ export const DELETE_FAV_VIDEOGAME = "DELETE_FAV_VIDEOGAME";
 export const ADD_FAVORITES = "ADD_FAVORITES";
 
 export const getAllVideogames = () => {
-  return async function (dispatch) {
-    const response = await axios
+  return function (dispatch) {
+    axios
       .get("http://localhost:3001/videogames")
-      .then((res) => res.data);
-    dispatch({
-      type: GET_ALL_VIDEOGAMES,
-      payload: response,
-    });
+      .then((res) => res.data)
+      .then((all) => dispatch({ type: GET_ALL_VIDEOGAMES, payload: all }));
   };
+
+  // return async function (dispatch) {
+  //   const response = await axios
+  //     .get("http://localhost:3001/videogames")
+  //     .then((res) => res.data);
+  //   dispatch({
+  //     type: GET_ALL_VIDEOGAMES,
+  //     payload: response,
+  //   });
+  // };
 };
 
 export const getAllVideogamesFavs = () => {
-  return async function (dispatch) {
-    const response = await axios
+  return function (dispatch) {
+    axios
       .get("http://localhost:3001/videogamesFavs")
-      .then((res) => res.data);
-    dispatch({
-      type: GET_ALL_VIDEOGAMESFAVS,
-      payload: response,
-    });
+      .then((res) => res.data)
+      .then((allFavs) =>
+        dispatch({ type: GET_ALL_VIDEOGAMESFAVS, payload: allFavs })
+      );
   };
+
+  // return async function (dispatch) {
+  //   const response = await axios
+  //     .get("http://localhost:3001/videogamesFavs")
+  //     .then((res) => res.data);
+  //   dispatch({
+  //     type: GET_ALL_VIDEOGAMESFAVS,
+  //     payload: response,
+  //   });
+  // };
 };
 
 export const getAllGeneres = () => {
-  return async function (dispatch) {
-    const response = await axios
+  return function (dispatch) {
+    axios
       .get("http://localhost:3001/genres")
-      .then((res) => res.data);
-    dispatch({
-      type: GET_ALL_GENERES,
-      payload: response,
-    });
+      .then((res) => res.data)
+      .then((allGeneres) =>
+        dispatch({ type: GET_ALL_GENERES, payload: allGeneres })
+      );
   };
+
+  // return async function (dispatch) {
+  //   const response = await axios
+  //     .get("http://localhost:3001/genres")
+  //     .then((res) => res.data);
+  //   dispatch({
+  //     type: GET_ALL_GENERES,
+  //     payload: response,
+  //   });
+  // };
 };
 
 export const getAllPlatforms = () => {
-  return async function (dispatch) {
-    const response = await axios
+  return function (dispatch) {
+    axios
       .get("http://localhost:3001/platforms")
-      .then((res) => res.data);
-    dispatch({
-      type: GET_ALL_PLATFORMS,
-      payload: response,
-    });
+      .then((res) => res.data)
+      .then((allPlatforms) =>
+        dispatch({ type: GET_ALL_PLATFORMS, payload: allPlatforms })
+      );
   };
+
+  // return async function (dispatch) {
+  //   const response = await axios.get("http://localhost:3001/platforms");
+  //   dispatch({
+  //     type: GET_ALL_PLATFORMS,
+  //     payload: response.data,
+  //   });
+  // };
 };
 
 export const getVideogameByName = (name) => {
-  return async function (dispatch) {
-    try {
-      let response = await axios
-        .get(`http://localhost:3001/videogames?name=${name}`)
-        .then((res) => res.data);
-      return dispatch({
-        type: GET_BY_NAME,
-        payload: response,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+  return function (dispatch) {
+    axios
+      .get(`http://localhost:3001/videogames?name=${name}`)
+      .then((res) => res.data)
+      .then((videogameByName) =>
+        dispatch({ type: GET_BY_NAME, payload: videogameByName })
+      );
   };
+
+  // return async function (dispatch) {
+  //   try {
+  //     let response = await axios
+  //       .get(`http://localhost:3001/videogames?name=${name}`)
+  //       .then((res) => res.data);
+  //     return dispatch({
+  //       type: GET_BY_NAME,
+  //       payload: response,
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 };
 
 export const getByCreated = (payload) => {
@@ -160,7 +201,7 @@ export function deleteFavVideogame(payload) {
     try {
       const response = await axios.delete(
         "http://localhost:3001/videogameFavorites",
-        { data: payload } 
+        { data: payload }
       );
       return dispatch({
         type: DELETE_FAV_VIDEOGAME,
