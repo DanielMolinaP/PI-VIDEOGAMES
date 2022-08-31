@@ -1,0 +1,101 @@
+.allCreate {
+  background-image: linear-gradient(rgb(5, 7, 12), rgba(5, 7, 12, 0.75)),
+    url("../img/controles.jpg");
+}
+
+.superCard {
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  height: 98%;
+  background: #24303c;
+  padding: 30px;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 4px;
+  color: white;
+  box-shadow: 7px 13px 37px #000;
+}
+.superCard h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+  text-align: center;
+  height: 100%;
+}
+.controls {
+  width: 100%;
+  background: #24303c;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #1f53c5;
+  font-size: 18px;
+  color: white;
+}
+
+.sidebar-boxCREATE{
+  padding: 5px 10px;
+  height: 42px;
+  margin: 10px auto;
+  min-width: 225px;
+  -webkit-appearance: none;
+  height: 34px;
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+  border-radius: 20px;
+}
+.error{
+  color: red;
+}
+.platform-genres{
+  display: flex;
+  height: 100px;
+  width: 100%;
+  background: #24303c;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #1f53c5;
+  font-size: 18px;
+  color: white;
+}
+.plat-gen-option{
+  margin-right: 10px;
+  text-align: center;
+  height: 80px;
+  width: 130px;
+  background: #24303c;
+  /* padding: 10px; */
+  border-radius: 4px;
+  /* margin-bottom: 16px; */
+  border: 1px solid #1f53c5;
+  font-size: 15px;
+  color: white;
+}
+
+.botonDelete{
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 10px;
+}
+.falso {
+  width: 100%;
+  background: red;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
+}
+
+.bueno {
+  width: 100%;
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
+}

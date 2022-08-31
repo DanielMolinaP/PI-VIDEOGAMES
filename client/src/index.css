@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  /* font-family: Verdana, Arial; */
+  /* background: -webkit-radial-gradient(#504f5a, #000f11); */
+  min-height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

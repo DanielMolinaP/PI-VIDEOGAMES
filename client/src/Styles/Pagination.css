@@ -1,0 +1,25 @@
+.pagination {
+  display: inline-block;
+  box-sizing: border-box;
+  max-width: 670px;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  margin: auto;
+  align-items: center;
+  
+}
+.pagination a {
+  color: black;
+  background-color: white;
+  float: left;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+.pagination a.activo {
+  color: white;
+}
+.pagination a:hover:not(.activo) {
+  background-color: gray;
+}

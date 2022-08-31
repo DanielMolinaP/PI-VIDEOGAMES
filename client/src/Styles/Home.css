@@ -1,0 +1,146 @@
+
+.Home_Principal {
+  background-image:linear-gradient(rgb(5, 7, 12), rgba(5, 7, 12, 0.75)), url("../img/controles.jpg");  
+}
+.btn-neonNH {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  color: #fff;
+  letter-spacing: 4px;
+  text-decoration: none;
+  font-size: 20px;
+  overflow: hidden;
+  transition: 0.2s;
+}
+.btn-neonNH:hover {
+  background: gray;
+  box-shadow: 0 0 10px gray, 0 0 40px gray, 0 0 80px gray;
+  transition-delay: 1s;
+}
+.btn-neonNH span {
+  position: absolute;
+  display: block;
+}
+#span1 {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, white);
+}
+.btn-neonNH:hover #span1 {
+  left: 100%;
+  transition: 1s;
+}
+#span3 {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, white);
+}
+.btn-neonNH:hover #span3 {
+  right: 100%;
+  transition: 1s;
+  transition-delay: 0.5s;
+}
+#span2 {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, white);
+}
+.btn-neonNH:hover #span2 {
+  top: 100%;
+  transition: 1s;
+  transition-delay: 0.25s;
+}
+#span4 {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, white);
+}
+.btn-neonNH:hover #span4 {
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 0.75s;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
+  margin-left: 0.5%;
+  padding-bottom: 2%;
+}
+
+/* tamano total de ambas */
+.containerH {
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; */
+  max-width: 100px;
+  /* margin: 8px 8px; */
+}
+
+/* la de atras */
+.containerH .cardH {
+  position: relative;
+  min-width: 1350px;
+  height: 720px;
+  box-shadow: inset 5px 5px 5px white, inset -5px -5px 15px grey,
+    5px 5px 15px grey, -5px -5px 15px grey;
+  border-radius: 15px;
+  /* margin: 30px; */
+  transition: 0.5s;
+}
+
+/* liso */
+.containerH .cardH .boxH {
+  position: absolute;
+  top: 10px;
+  left: 4px;
+  right: 6px;
+  bottom: 6px;
+  background: #2a2b2f;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.sidebar-box {
+  padding: 5px 10px;
+  height: 42px;
+  margin: 10px auto;
+  min-width: 225px;
+  -webkit-appearance: none;
+  height: 34px;
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+  border-radius: 20px;
+}
+
+.cuadro {
+  text-align: center;
+}
+
+.cuadro .cards .loading{
+  height: 400px;
+  width: 500px;
+  border-radius: 100px;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+}
