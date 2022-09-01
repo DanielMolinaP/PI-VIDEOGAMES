@@ -18,7 +18,6 @@ import Footer from "../Footer/Footer";
 
 //STYLES
 import "../../Styles/Home.css";
-import loading from "../../img/loading-5.gif"
 
 const Home = () => {
   const dispatch = useDispatch();

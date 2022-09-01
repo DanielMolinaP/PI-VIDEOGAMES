@@ -50,7 +50,6 @@ const VideogamesFavorites = () => {
                   name={e.name}
                   image={e.image}
                   genreDb={e.videogameFav ? e.genres : []}
-                  // genre={!e.videogameFav ? e.genre : []}
                 />
               );
             })
