@@ -6,7 +6,7 @@ const LandingPage = () => {
     <div className="todoLA">
       <div className="landing">
         <h2 className="cambioh2" data-text="WORLD_GAMER">WORLD_GAMER</h2>
-        <h3>By: Daniel Molina</h3>
+        <h3>By: Daniel Molina Pineda</h3>
         <br />
         <a href="/home" className="btn-neon">
           <span id="span1"></span>
