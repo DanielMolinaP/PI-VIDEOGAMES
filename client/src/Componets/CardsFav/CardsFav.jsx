@@ -5,14 +5,14 @@ import { deleteFavVideogame } from "../../Redux/Acctions/index.js";
 //Styles
 import "../../Styles/Card.css";
 
-const CardFavs = ({ id, name, image, genre, genreDb }) => {
+const CardFavs = ({ id, name, image, genreDb }) => {
   const dispatch = useDispatch();
   const [aux, setAux] = useState({ deleteId: id });
 
   const deleteFavs = (e) => {
     dispatch(deleteFavVideogame(aux));
     alert("videogame was deleted");
-    e.reload()
+    e.reload();
   };
 
   return (
@@ -25,13 +25,9 @@ const CardFavs = ({ id, name, image, genre, genreDb }) => {
               <p>{name}</p>
               <p>
                 Generes :
-                {genre.length > 0
-                  ? genre.map((e) => {
-                      return ` | ${e} | `;
-                    })
-                  : genreDb.map((e) => {
-                      return ` | ${e.name} | `;
-                    })}
+                {genreDb.map((e) => {
+                  return ` | ${e.name} | `;
+                })}
               </p>
               <a className="link" onClick={(e) => deleteFavs(e)}>
                 Delete

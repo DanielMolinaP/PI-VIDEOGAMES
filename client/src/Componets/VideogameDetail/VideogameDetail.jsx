@@ -34,7 +34,7 @@ const VideogameDetail = (props) => {
         platforms: addToFavplat,
       };
       dispatch(addFavorites(addToFavDb));
-      alert("video game added to favorites successfully");
+      alert("videogame added to favorites successfully");
     } else {
       const addToFavApi = {
         name: videogameDetail[0].name,
@@ -47,7 +47,7 @@ const VideogameDetail = (props) => {
       };
       // console.log(addToFavApi)
       dispatch(addFavorites(addToFavApi));
-      alert("video game added to favorites successfully");
+      alert("videogame added to favorites successfully");
     }
   };
 
@@ -90,12 +90,14 @@ const VideogameDetail = (props) => {
                 </p>
                 <p className="rating">Rating : {videogameDetail[0].rating}</p>
                 <p>Description: {videogameDetail[0].description}</p>
-                <p>
-                  website:
-                  <a href={videogameDetail[0].website} target="_blank">
-                    {videogameDetail[0].website}
-                  </a>{" "}
-                </p>
+                {videogameDetail[0].createdAtDb ? null : (
+                  <p>
+                    website:
+                    <a href={videogameDetail[0].website} target="_blank">
+                      {videogameDetail[0].website}
+                    </a>
+                  </p>
+                )}
                 <a onClick={(e) => addFav(e)}>add to Favorites </a>
               </div>
             </div>
@@ -110,47 +112,3 @@ const VideogameDetail = (props) => {
 };
 
 export default VideogameDetail;
-
-{
-  /*<div className="card">
-        {videogameDetail.length > 0 ? (
-          <div>
-            <h1 className="name">{videogameDetail[0].name}</h1>
-            <img
-              src={videogameDetail[0].image}
-              alt="Not found"
-              className="Image"
-            />
-            <h5 className="generes">
-              Generes :
-              {!videogameDetail[0].createdAtDb
-                ? videogameDetail[0].genres.map((e) => {
-                    return ` | ${e} | `;
-                  })
-                : videogameDetail[0].genres.map((e) => {
-                    return ` | ${e.name} | `;
-                  })}
-            </h5>
-            <h5 className="platform">
-              Platform :
-              {!videogameDetail[0].createdAtDb
-                ? videogameDetail[0].platforms.map((e) => {
-                    return ` | ${e} | `;
-                  })
-                : videogameDetail[0].platforms.map((e) => {
-                    return ` | ${e.name} | `;
-                  })}
-            </h5>
-            <h5 className="released">
-              Released : {videogameDetail[0].released}
-            </h5>
-            <h5 className="rating">Rating : {videogameDetail[0].rating}</h5>
-            <p className="description">
-              Description: {videogameDetail[0].description}
-            </p>
-          </div>
-        ) : (
-          <h1>Loading...</h1>
-        )}
-      </div> */
-}
