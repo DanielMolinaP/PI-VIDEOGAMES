@@ -165,6 +165,7 @@ router.get("/videogame/:idVideogame", async (req, res) => {
         rating: dat.rating,
         genres: dat.genres.map((el) => el.name),
         platforms: dat.platforms.map((el) => el.platform.name),
+        website:dat.website,
       },
     ];
     formated.length
@@ -318,6 +319,17 @@ router.delete("/videogameFavorites", (req, res) => {
       console.log(err);
       res.status(400).send(err);
     });
+});
+
+router.put("/:id", async (req, res) => {
+  const { id } = req.params;
+  const datos = req.body;
+  try {
+    Videogame.update(datos, { where: { id } });
+    return res.send("change Successfully");
+  } catch (err) {
+    res.status(400).send(err);
+  }
 });
 
 module.exports = router;

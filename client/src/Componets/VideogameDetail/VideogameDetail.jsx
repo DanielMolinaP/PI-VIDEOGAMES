@@ -90,6 +90,12 @@ const VideogameDetail = (props) => {
                 </p>
                 <p className="rating">Rating : {videogameDetail[0].rating}</p>
                 <p>Description: {videogameDetail[0].description}</p>
+                <p>
+                  website:
+                  <a href={videogameDetail[0].website} target="_blank">
+                    {videogameDetail[0].website}
+                  </a>{" "}
+                </p>
                 <a onClick={(e) => addFav(e)}>add to Favorites </a>
               </div>
             </div>
