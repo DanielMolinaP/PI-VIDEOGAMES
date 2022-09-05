@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { getVideogameByName } from "../../Redux/Acctions/index.js";
 import "../../Styles/SearchBar.css";
 
-const SearchBar = () => {
+const SearchBar = ({ allVideogames }) => {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
 
@@ -12,10 +12,17 @@ const SearchBar = () => {
     setName(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+
+  const verificate = () => {
+    if (allVideogames.length < 1) {
+      alert("Videogame does not exist");
+    }
+    console.log(allVideogames)
+  };
+
+  const handleSubmit = () => {
     dispatch(getVideogameByName(name));
-    setName("");
+    setTimeout(verificate, 1000);
   };
   return (
     <div className="arr">

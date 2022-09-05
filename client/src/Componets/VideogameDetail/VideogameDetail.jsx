@@ -9,11 +9,15 @@ import "../../Styles/VideogameDetail.css";
 
 const VideogameDetail = (props) => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(detailVideogame(props.match.match.params.idVideogame));
   }, [props.match.match.params.idVideogame, dispatch]);
+
   const videogameDetail = useSelector((state) => state.detail);
+
   // console.log(videogameDetail)
+
   const addFav = (e) => {
     e.preventDefault();
     const idParams = props.match.match.params.idVideogame;

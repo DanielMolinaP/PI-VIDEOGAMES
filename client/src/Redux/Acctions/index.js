@@ -18,7 +18,7 @@ export const ADD_FAVORITES = "ADD_FAVORITES";
 export const getAllVideogames = () => {
   return function (dispatch) {
     axios
-      .get("http://localhost:3001/videogames")
+      .get("/videogames")
       .then((res) => res.data)
       .then((all) => dispatch({ type: GET_ALL_VIDEOGAMES, payload: all }));
   };
@@ -37,7 +37,7 @@ export const getAllVideogames = () => {
 export const getAllVideogamesFavs = () => {
   return function (dispatch) {
     axios
-      .get("http://localhost:3001/videogamesFavs")
+      .get("/videogamesFavs")
       .then((res) => res.data)
       .then((allFavs) =>
         dispatch({ type: GET_ALL_VIDEOGAMESFAVS, payload: allFavs })
@@ -58,7 +58,7 @@ export const getAllVideogamesFavs = () => {
 export const getAllGeneres = () => {
   return function (dispatch) {
     axios
-      .get("http://localhost:3001/genres")
+      .get("/genres")
       .then((res) => res.data)
       .then((allGeneres) =>
         dispatch({ type: GET_ALL_GENERES, payload: allGeneres })
@@ -79,7 +79,7 @@ export const getAllGeneres = () => {
 export const getAllPlatforms = () => {
   return function (dispatch) {
     axios
-      .get("http://localhost:3001/platforms")
+      .get("/platforms")
       .then((res) => res.data)
       .then((allPlatforms) =>
         dispatch({ type: GET_ALL_PLATFORMS, payload: allPlatforms })
@@ -98,7 +98,7 @@ export const getAllPlatforms = () => {
 export const getVideogameByName = (name) => {
   return function (dispatch) {
     axios
-      .get(`http://localhost:3001/videogames?name=${name}`)
+      .get(`/videogames?name=${name}`)
       .then((res) => res.data)
       .then((videogameByName) =>
         dispatch({ type: GET_BY_NAME, payload: videogameByName })
@@ -158,7 +158,7 @@ export function sortByRating(payload) {
 export function addFavorites(payload) {
   return async function (dispatch) {
     const post = await axios.post(
-      "http://localhost:3001/videogameDetail",
+      "/videogameDetail",
       payload
     );
     return dispatch({
@@ -172,7 +172,7 @@ export function detailVideogame(idVideogame) {
   return async function (dispatch) {
     try {
       const res = await axios.get(
-        `http://localhost:3001/videogame/${idVideogame}`
+        `/videogame/${idVideogame}`
       );
       return dispatch({
         type: VIDEOGAME_DETAIL,
@@ -187,7 +187,7 @@ export function detailVideogame(idVideogame) {
 export function postVideogame(payload) {
   return async function (dispatch) {
     const post = await axios.post(
-      "http://localhost:3001/createvideogame",
+      "/createvideogame",
       payload
     );
     return dispatch({
@@ -200,7 +200,7 @@ export function deleteFavVideogame(payload) {
   return async function (dispatch) {
     try {
       const response = await axios.delete(
-        "http://localhost:3001/videogameFavorites",
+        "/videogameFavorites",
         { data: payload }
       );
       return dispatch({

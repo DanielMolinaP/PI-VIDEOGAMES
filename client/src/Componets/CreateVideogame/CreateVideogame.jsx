@@ -45,9 +45,9 @@ const CreateVideogame = () => {
     if (!input.released) {
       errors.released = "The released is requiere";
     }
-    if (!input.description || input.description.length > 2000) {
+    if (!input.description || input.description.length > 5000) {
       errors.description =
-        "The description is requiere and less than 200 characters ";
+        "The description is requiere and less than 5000 characters ";
     }
     if (!input.rating || input.rating > 5 || input.rating < 0) {
       errors.rating = "Rating must be a number between 0.0 - 5.0";
@@ -56,7 +56,7 @@ const CreateVideogame = () => {
       errors.platform = "The game requires at least one platform and max 5";
     }
     if (!input.genre.length) {
-      errors.genre = "The game requires at least one genre";
+      errors.genre = "The game requires at least one genre  and max 5";
     }
     if (!input.image || input.image.length > 255) {
       errors.image =
@@ -257,7 +257,7 @@ const CreateVideogame = () => {
         </div>
         <div className="botones">
           {Object.entries(errors).length > 0 ? (
-            <button className="falso">No deberia</button>
+            <button className="falso">Create Videogame</button>
           ) : (
             <button onClick={(e) => handleSubmit(e)} className="bueno">
               Create Videogame

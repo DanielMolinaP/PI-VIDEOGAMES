@@ -38,15 +38,7 @@ const Home = () => {
     indexOfFirstVideogame,
     indexOfLastVideogame
   );
-  // Example for currentVg if position in page 2 = (60).slice((30-15),(2*15))
-  //   (60).slice(15,30)
-  // esto significa que mostrará los VG desde el 15 al 29
-  // lo que resulta en un total de 15 videojuegos
 
-  // Example for currentVg if position in page 1 = (60).slice((15-15),(1*15))
-  //   (60).slice(0,15)
-  // esto significa que mostrará los VG desde el 0 al 14
-  // lo que resulta en un total de 15 videojuegos
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -90,7 +82,8 @@ const Home = () => {
     <div className="Home_Principal">
       <div className="cuadro">
         <Navbar />
-        <SearchBar />
+        {/* {console.log(allVideogames)} */}
+        <SearchBar allVideogames={allVideogames} />
         <div className="selects">
           <select onChange={(e) => handleCreated(e)} className="sidebar-box">
             <option value="All">All</option>
@@ -155,7 +148,6 @@ const Home = () => {
             })
           ) : (
             <h1>loading</h1>
-            // <img src={loading} alt="loading" className="loading"/>
           )}
         </div>
       </div>

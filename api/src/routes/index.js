@@ -14,27 +14,20 @@ const router = Router();
 router.get("/videogames", async (req, res) => {
   const { name } = req.query;
   let videogamesTotal = await getAllVideogames();
+  let notVideogame = []
   if (name) {
     let videogameName = await videogamesTotal.filter((e) =>
       e.name.toLowerCase().includes(name.toLowerCase())
     ); //aqui traemos el personaje que en el juego incluya el nombre que se le pasan ej: http://localhost:3001/videogames?name=halo te traera a "Halo", "Halo infinite","Halo Wars" etc.
     videogameName.length
       ? res.status(200).send(videogameName)
-      : res.status(404).send("Videogame not found.Sorry!");
+      : res.status(200).send(notVideogame);
   } else {
     res.status(200).send(videogamesTotal);
   }
 });
 
 router.get("/videogame/:idVideogame", async (req, res) => {
-  // const { idVideogame } = req.params;
-  // const allVideogames = await getAllVideogames();
-  // if (idVideogame) {
-  //   let videogameId = await allVideogames.filter((e) => e.id == idVideogame);
-  //   videogameId.length
-  //     ? res.status(200).json(videogameId)
-  //     : res.status(404).send("Dog not found");
-  // }
 
   // const { idVideogame } = req.params;
   // const videoGameUrl = await axios.get(
@@ -58,9 +51,6 @@ router.get("/videogame/:idVideogame", async (req, res) => {
   //     ? res.status(200).json(videogameInfo)
   //     : res.status(404).send("Dog not found");
   //}
-  // const { idVideogame } = req.params;
-  // const vamosss = getVideogameInfo(idVideogame);
-  // res.send(vamosss);
   const { idVideogame } = req.params;
   if (!idVideogame.includes("-")) {
     const detail = await axios.get(
@@ -125,16 +115,19 @@ router.get("/genres", async (req, res) => {
   const allGenres = await Genre.findAll();
   res.status(200).send(allGenres);
 
-  // const genresApi = await axios.get("http://localhost:3001/videogames");
-  // const generes = genresApi.data.map((e) => e.genres);
-  // const gene = generes.toString().split(",");
-  // gene.forEach((el) => {
-  //   Genre.findOrCreate({
-  //     where: { name: el },
-  //   });
-  // });
-  // const allGeneres = await Genre.findAll();
-  // res.status(200).send(allGeneres);
+});
+
+router.get("/platforms", async (req, res) => {
+  const plataformApi = await axios.get("http://localhost:3001/videogames");
+  const plataform = plataformApi.data.map((e) => e.platform);
+  const plataf = plataform.toString().split(",");
+  plataf.forEach((el) => {
+    Platform.findOrCreate({
+      where: { name: el },
+    });
+  });
+  const allPlatforms = await Platform.findAll();
+  res.status(200).send(allPlatforms);
 });
 
 router.get("/videogamesFavs", async (req, res) => {
@@ -152,18 +145,6 @@ router.get("/videogamesFavs", async (req, res) => {
   }
 });
 
-router.get("/platforms", async (req, res) => {
-  const plataformApi = await axios.get("http://localhost:3001/videogames");
-  const plataform = plataformApi.data.map((e) => e.platform);
-  const plataf = plataform.toString().split(",");
-  plataf.forEach((el) => {
-    Platform.findOrCreate({
-      where: { name: el },
-    });
-  });
-  const allPlatforms = await Platform.findAll();
-  res.status(200).send(allPlatforms);
-});
 
 router.post("/createvideogame", async (req, res) => {
   const { name, image, rating, description, released, platform, genre } =
@@ -233,7 +214,7 @@ router.delete("/videogameFavorites", (req, res) => {
     });
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", (req, res) => {
   const { id } = req.params;
   const datos = req.body;
   try {
