@@ -118,9 +118,10 @@ router.get("/genres", async (req, res) => {
 });
 
 router.get("/platforms", async (req, res) => {
-  const plataformApi = await axios.get("http://localhost:3001/videogames");
-  const plataform = plataformApi.data.map((e) => e.platform);
-  const plataf = plataform.toString().split(",");
+  const plataformApi = await axios.get(`https://api.rawg.io/api/platforms?key=${YOUR_API_KEY}`);
+  const plataformSplice = plataformApi.data.results.splice(0,31)
+  const plaformAll=plataformSplice.map((e) => e.name);
+  const plataf = plaformAll.toString().split(",");
   plataf.forEach((el) => {
     Platform.findOrCreate({
       where: { name: el },
