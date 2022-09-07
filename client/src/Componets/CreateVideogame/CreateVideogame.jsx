@@ -53,14 +53,14 @@ const CreateVideogame = () => {
       errors.rating = "Rating must be a number between 0.0 - 5.0";
     }
     if (!input.platform.length || input.platform.length > 5) {
-      errors.platform = "The game requires at least one platform and max 5";
+      errors.platform = "The game requires at least one platform";
     }
     if (!input.genre.length) {
-      errors.genre = "The game requires at least one genre  and max 5";
+      errors.genre = "The game requires at least one genre";
     }
-    if (!input.image || input.image.length > 255) {
+    if (!input.image || input.image.length > 300) {
       errors.image =
-        "The url of image is required and it is length less than 255";
+        "The url of image is required and it is length less than 300";
     }
     return errors;
   }
