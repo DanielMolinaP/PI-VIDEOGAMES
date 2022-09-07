@@ -14,6 +14,7 @@ import {
   ADD_FAVORITES,
   GET_ALL_VIDEOGAMESFAVS,
   DELETE_FAV_VIDEOGAME,
+  DELETE_VIDEOGAME,
 } from "../Acctions/index";
 
 const initialState = {
@@ -168,6 +169,10 @@ const rootReducer = (state = initialState, action) => {
         ...state,
       };
     case DELETE_FAV_VIDEOGAME:
+      return {
+        ...state,
+      };
+      case DELETE_VIDEOGAME:
       return {
         ...state,
       };

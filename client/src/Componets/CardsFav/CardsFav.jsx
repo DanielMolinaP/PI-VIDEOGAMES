@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, {useState } from "react";
+import { useDispatch } from "react-redux";
 import { deleteFavVideogame } from "../../Redux/Acctions/index.js";
 
 //Styles
@@ -30,7 +30,7 @@ const CardFavs = ({ id, name, image, genreDb }) => {
                 })}
               </p>
               <a className="link" onClick={(e) => deleteFavs(e)}>
-                Delete
+              Remove
               </a>
             </div>
           </div>

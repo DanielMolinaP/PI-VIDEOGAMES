@@ -1,6 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { detailVideogame, addFavorites } from "../../Redux/Acctions/index.js";
+import {
+  detailVideogame,
+  addFavorites,
+  deleteVideogame,
+} from "../../Redux/Acctions/index.js";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer.jsx";
 
@@ -15,6 +19,9 @@ const VideogameDetail = (props) => {
   }, [props.match.match.params.idVideogame, dispatch]);
 
   const videogameDetail = useSelector((state) => state.detail);
+  const [aux, setAux] = useState({
+    deleteID: props.match.match.params.idVideogame,
+  });
 
   // console.log(videogameDetail)
 
@@ -53,6 +60,11 @@ const VideogameDetail = (props) => {
       dispatch(addFavorites(addToFavApi));
       alert("videogame added to favorites successfully");
     }
+  };
+  const deleteVideogamE = (e) => {
+    e.preventDefault();
+    dispatch(deleteVideogame(aux));
+    alert("videogame was deleted");
   };
 
   return (
@@ -102,7 +114,14 @@ const VideogameDetail = (props) => {
                     </a>
                   </p>
                 )}
-                <a onClick={(e) => addFav(e)}>add to Favorites </a>
+                <div>
+                  <a onClick={(e) => addFav(e)}>Add to Favorites </a>
+                </div>
+                {videogameDetail[0].createdAtDb ? (
+                  <div>
+                    <a onClick={(e) => deleteVideogamE(e)}>Delete Videogame </a>
+                  </div>
+                ) : null}
               </div>
             </div>
           ) : (

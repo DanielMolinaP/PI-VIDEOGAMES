@@ -215,6 +215,18 @@ router.delete("/videogameFavorites", (req, res) => {
     });
 });
 
+router.delete("/videogameDetail", (req, res) => {
+  const { deleteID } = req.body;
+  Videogame.destroy({ where: { id: deleteID } })
+    .then(() => {
+      res.status(200).send("Removed Successfully");
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).send(err);
+    });
+});
+
 router.put("/:id", (req, res) => {
   const { id } = req.params;
   const datos = req.body;

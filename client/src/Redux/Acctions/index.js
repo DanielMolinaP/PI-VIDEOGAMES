@@ -14,6 +14,9 @@ export const VIDEOGAME_DETAIL = "VIDEOGAME_DETAIL";
 export const CREATE_VIDEOGAME = "CREATE_VIDEOGAME";
 export const DELETE_FAV_VIDEOGAME = "DELETE_FAV_VIDEOGAME";
 export const ADD_FAVORITES = "ADD_FAVORITES";
+export const DELETE_VIDEOGAME = "DELETE_VIDEOGAME";
+
+
 
 export const getAllVideogames = () => {
   return function (dispatch) {
@@ -205,6 +208,32 @@ export function deleteFavVideogame(payload) {
       );
       return dispatch({
         type: DELETE_FAV_VIDEOGAME,
+        payload: response,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+    // const deletE = await axios.delete(
+    //   "http://localhost:3001/videogameFavorites",
+    //   payload
+    // );
+    // return dispatch({
+    //   type: DELETE_FAV_VIDEOGAME,
+    //   payload: deletE,
+    // });
+  };
+}
+
+export function deleteVideogame(payload) {
+  return async function (dispatch) {
+    try {
+      const response = await axios.delete(
+        "/videogameDetail",
+        { data: payload }
+      );
+      return dispatch({
+        type: DELETE_VIDEOGAME,
         payload: response,
       });
     } catch (error) {
