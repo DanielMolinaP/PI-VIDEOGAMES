@@ -39,7 +39,6 @@ const Home = () => {
     indexOfLastVideogame
   );
 
-
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -86,11 +85,17 @@ const Home = () => {
         <SearchBar allVideogames={allVideogames} />
         <div className="selects">
           <select onChange={(e) => handleCreated(e)} className="sidebar-box">
+            <option value="" disabled selected>
+              Filter By Created
+            </option>
             <option value="All">All</option>
             <option value="Created">My Videogames</option>
             <option value="Api">Api Videogames</option>
           </select>
           <select onChange={(e) => handleGenres(e)} className="sidebar-box">
+            <option value="" disabled selected>
+              Filter By Genres
+            </option>
             <option value="All">All</option>
             {allGeneres.map((i, index) => (
               <option key={index} value={i.name}>
@@ -99,6 +104,9 @@ const Home = () => {
             ))}
           </select>
           <select onChange={(e) => handlePlatforms(e)} className="sidebar-box">
+            <option value="" disabled selected>
+              Filter By Platforms
+            </option>
             <option value="All">All</option>
             {allPlatforms.map((i, index) => (
               <option key={index} value={i.name}>
@@ -107,6 +115,9 @@ const Home = () => {
             ))}
           </select>
           <select onChange={(e) => handleOrder(e)} className="sidebar-box">
+            <option value="" disabled selected>
+              Filter By Order Name
+            </option>
             <option value="Asc">Asc [A-Z]</option>
             <option value="Desc">Desc [Z-A]</option>
           </select>
@@ -114,10 +125,13 @@ const Home = () => {
             onChange={(e) => handleSortByRating(e)}
             className="sidebar-box"
           >
+            <option value="" disabled selected>
+              Filter By Order Rating
+            </option>
             <option value="Greater">Greater Rating</option>
             <option value="Lower">Lower Rating</option>
           </select>
-          <br/>
+          <br />
           <a onClick={(e) => deteleFilters(e)} className="btn-neonNH">
             <span id="span1"></span>
             <span id="span2"></span>
@@ -151,7 +165,7 @@ const Home = () => {
           )}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
