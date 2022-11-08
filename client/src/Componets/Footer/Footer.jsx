@@ -28,7 +28,7 @@ const Footer = () => {
           <h2>FOLLOW ME</h2>
           <div className="red-social">
             <a href="https://www.linkedin.com/in/daniel-molina-a61b85236/" target="_blank"><img src={linkin} height="45px" width="45px"></img></a>
-            <a href="https://github.com/masterchip14" target="_blank"><img src={github} height="45px" width="55px"></img></a>
+            <a href="https://github.com/DanielMolinaP" target="_blank"><img src={github} height="45px" width="55px"></img></a>
           </div>
         </div>
       </div>
